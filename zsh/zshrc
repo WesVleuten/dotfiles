@@ -12,6 +12,14 @@ export PATH="$HOME/.local/bin:$PATH"
 export EDITOR=nvim
 export LHOST=$(ip a s tun0 | grep -Po 'inet \K[\d.]+') 2>/dev/null
 
+catr() {
+	if [ -z "$1" ] || [ -z "$2" ] || [-z "$3" ]; then
+		echo "Usage: catr startline endline file";
+	else
+		tail -n "+$1" $3 | head -n "$(($2 - $1 + 1))"
+	fi
+}
+
 alias vim="nvim"
 alias vimdiff="nvim -d"
 alias l="ls -lash"
