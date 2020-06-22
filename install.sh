@@ -18,8 +18,10 @@ fi
 ln -sf $HOME/.dotfiles/zsh/p10k.zsh $HOME/.p10k.zsh
 
 # install fonts
-if [ ! -d /usr/share/fonts/truetype/meslolgs ]; then
-	sudo bash -c "mkdir -p /usr/share/fonts/truetype/meslolgs && ln -s $HOME/.dotfiles/zsh/powerlevel10k-media/MesloLGS*.ttf /usr/share/fonts/truetype/meslolgs"
+if [[ "$OSTYPE" != "darwin"* ]]; then
+	if [ ! -d /usr/share/fonts/truetype/meslolgs ]; then
+		sudo bash -c "mkdir -p /usr/share/fonts/truetype/meslolgs && ln -s $HOME/.dotfiles/zsh/powerlevel10k-media/MesloLGS*.ttf /usr/share/fonts/truetype/meslolgs"
+	fi
 fi
 
 # install tmux config
