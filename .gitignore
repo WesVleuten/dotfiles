@@ -1,1 +1,4 @@
-/zsh/ohmyzsh/*
+zsh/ohmyzsh
+zsh/powerlevel10k
+
+nvim/autoload/plugged
