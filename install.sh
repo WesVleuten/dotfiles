@@ -29,3 +29,6 @@ if [ -f $HOME/.tmux.conf ] && [ ! -L $HOME/.tmux.conf ]; then
 	mv $HOME/.tmux.conf $HOME/.tmux.conf.bak
 fi
 ln -sf $HOME/.dotfiles/tmux/tmux.conf $HOME/.tmux.conf
+
+ln -sf $HOME/.dotfiles/nvim $HOME/.config/nvim
+
