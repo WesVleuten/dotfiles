@@ -20,6 +20,7 @@ set shiftwidth=4
 set smartindent
 set smarttab
 set softtabstop=4
+set tabstop=4
 
 set ruler
 
@@ -31,3 +32,4 @@ set updatetime=50
 set colorcolumn=80
 
 source $HOME/.config/nvim/plugins.vim
+source $HOME/.config/nvim/keybindings.vim
