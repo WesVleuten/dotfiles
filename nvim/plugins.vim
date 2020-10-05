@@ -9,10 +9,17 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
+Plug 'neovim/nvim-lspconfig'
+Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete-lsp'
+
+Plug 'ayu-theme/ayu-vim'
 Plug 'gruvbox-community/gruvbox'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-commentary'
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
@@ -25,10 +32,28 @@ endif
 let g:gruvbox_invert_selection='0'
 
 colorscheme gruvbox
-set background=dark
+" set background=dark
+
+" let ayucolor="dark"
+" colorscheme ayu
+
+" IndentLine {{
+let g:indentLine_char = '▏'
+let g:indentLine_first_char = '▏'
+let g:indentLine_showFirstIndentLevel = 1
+let g:indentLine_setColors = 0
+" }}
 
 " Airline settings
 let g:airline#extensions#tabline#enabled = 1
 
 " FZF settings
 nnoremap <C-p> :GFiles<CR>
+
+" LSP SETUP
+let g:deoplete#enable_at_startup = 1
+lua require'nvim_lsp'.pyls.setup{}
+
+set completeopt-=preview
+
+
