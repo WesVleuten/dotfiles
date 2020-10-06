@@ -31,11 +31,11 @@ if exists('+termguicolors')
 endif
 let g:gruvbox_invert_selection='0'
 
-colorscheme gruvbox
-" set background=dark
+" colorscheme gruvbox
+set background=dark
 
-" let ayucolor="dark"
-" colorscheme ayu
+let ayucolor="dark"
+colorscheme ayu
 
 " IndentLine {{
 let g:indentLine_char = '▏'
