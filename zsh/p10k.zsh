@@ -41,7 +41,7 @@
     command_execution_time  # duration of the last command
     background_jobs         # presence of background jobs
     virtualenv              # python virtual environment (https://docs.python.org/3/library/venv.html)
-    context                 # user@hostname
+    # context                 # user@hostname
     nordvpn                 # nordvpn connection status, linux only (https://nordvpn.com/)
     ranger                  # ranger shell (https://github.com/ranger/ranger)
     vim_shell               # vim shell indicator (:sh)
