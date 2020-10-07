@@ -10,8 +10,7 @@ endif
 call plug#begin('~/.config/nvim/autoload/plugged')
 
 Plug 'neovim/nvim-lspconfig'
-Plug 'Shougo/deoplete.nvim'
-Plug 'Shougo/deoplete-lsp'
+Plug 'nvim-lua/completion-nvim'
 
 Plug 'ayu-theme/ayu-vim'
 Plug 'gruvbox-community/gruvbox'
@@ -51,9 +50,11 @@ let g:airline#extensions#tabline#enabled = 1
 nnoremap <C-p> :GFiles<CR>
 
 " LSP SETUP
-let g:deoplete#enable_at_startup = 1
-lua require'nvim_lsp'.pyls.setup{}
+set completeopt=menuone,noinsert,noselect
+let g:completion_matching_strategy_list = [ 'exact', 'substring', 'fuzzy' ]
+lua require'nvim_lsp'.pyls.setup{ on_attach=require'completion'.on_attach }
+lua require'nvim_lsp'.tsserver.setup{ on_attach=require'completion'.on_attach }
+lua require'nvim_lsp'.clangd.setup{ on_attach=require'completion'.on_attach }
 
-set completeopt-=preview
 
 
