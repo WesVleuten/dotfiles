@@ -32,5 +32,7 @@ set updatetime=50
 
 set colorcolumn=80
 
+let mapleader = " "
+
 source $HOME/.config/nvim/plugins.vim
 source $HOME/.config/nvim/keybindings.vim

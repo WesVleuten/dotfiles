@@ -1,10 +1,10 @@
 " auto-install vim-plug
 
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
-    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    "autocmd VimEnter * PlugInstall
-    "autocmd VimEnter * PlugInstall | source $MYVIMRC
+	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	"autocmd VimEnter * PlugInstall
+	"autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
@@ -19,14 +19,15 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'Yggdroot/indentLine'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
 " Gruvbox settings
 let g:gruvbox_contrast_dark = 'hard'
 if exists('+termguicolors')
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 let g:gruvbox_invert_selection='0'
 
