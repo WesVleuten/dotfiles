@@ -26,3 +26,4 @@ alias l="ls -lash"
 alias up="echo $LHOST; python3 -m http.server"
 alias gs="git status"
 
+[[ ! -f ~/.zshrc.ext ]] || source ~/.zshrc.ext
