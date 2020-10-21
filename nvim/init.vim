@@ -34,5 +34,12 @@ set colorcolumn=80
 
 let mapleader = " "
 
-source $HOME/.config/nvim/plugins.vim
-source $HOME/.config/nvim/keybindings.vim
+source $HOME/.config/nvim/plugin.vim
+
+" This allows for automatic plugin install
+" It will prevent from loading plugin specific settings causing errors if the
+" plugin has not been installed yet.
+if $PLUGINSTALL != 1
+	source $HOME/.config/nvim/plugin_settings.vim
+	source $HOME/.config/nvim/keybindings.vim
+endif

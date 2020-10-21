@@ -12,3 +12,11 @@ sudo npm install -g typescript-language-server
 
 # Clang LSP
 sudo apt install -y clangd-9
+
+# Rust LSP
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+rustup component add rust-src
+curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-linux -o ~/.local/bin/rust-analyzer
+chmod +x ~/.local/bin/rust-analyzer
+echo "source $HOME/.cargo/env" >> ~/.zshrc.ext
+

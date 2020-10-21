@@ -30,5 +30,9 @@ if [ -f $HOME/.tmux.conf ] && [ ! -L $HOME/.tmux.conf ]; then
 fi
 ln -sf $HOME/.dotfiles/tmux/tmux.conf $HOME/.tmux.conf
 
+# install nvim config and plugins
 ln -sf $HOME/.dotfiles/nvim $HOME/.config/nvim
+PLUGINSTALL=1 nvim -c "PlugInstall" -c "qa"
 
+# install fd-find
+sudo apt install -y fd-find
