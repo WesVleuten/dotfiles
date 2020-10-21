@@ -1,3 +1,27 @@
+echo "Eyo wassup, itsjaboi"
+echo "Please enter your GIT name:"
+read gitname
+echo "Please enter your GIT email:"
+read gitemail
+
+sudo apt update
+sudo apt install -y zsh
+chsh -s /usr/bin/zsh
+
+echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
+sudo apt-add-repository ppa:yubico/stable
+
+sudo apt update
+
+sudo apt install -y apt-transport-https curl neofetch git wget build-essential yubikey-manager-qt brave-browser fd-find
+
+sudo chown westar:westar /opt
+wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -O /opt/nvim.appimage
+chmod +x /opt/nvim.appimage
+
+git config --global user.email "$gitemail"
+git config --global user.name "$gitname"
 
 # install zshrc
 if [ -f $HOME/.zshrc ] && [ ! -L $HOME/.zshrc ]; then
@@ -32,7 +56,25 @@ ln -sf $HOME/.dotfiles/tmux/tmux.conf $HOME/.tmux.conf
 
 # install nvim config and plugins
 ln -sf $HOME/.dotfiles/nvim $HOME/.config/nvim
+source $HOME/.zshrc
 PLUGINSTALL=1 nvim -c "PlugInstall" -c "qa"
 
-# install fd-find
-sudo apt install -y fd-find
+# Python LSP
+sudo apt install -y python3-pip
+pip3 install 'python-language-server[all]'
+
+# Typescript LSP
+curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt install -y nodejs build-essential
+sudo npm install -g typescript-language-server
+
+# Clang LSP
+sudo apt install -y clangd-9
+
+# Rust LSP
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+rustup component add rust-src
+curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-linux -o ~/.local/bin/rust-analyzer
+chmod +x ~/.local/bin/rust-analyzer
+echo "source $HOME/.cargo/env" >> ~/.zshrc.ext
+
