@@ -26,5 +26,7 @@ alias l="ls -lash"
 alias up="echo $LHOST; python3 -m http.server"
 alias gs="git status"
 alias reload="source ~/.zshrc"
+alias utc="date -u +'%F %R %Z'"
+alias quit="exit"
  
 [[ ! -f ~/.zshrc.ext ]] || source ~/.zshrc.ext

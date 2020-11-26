@@ -1,4 +1,6 @@
 syntax on
+filetype plugin indent on
+set filetype=on
 
 set number relativenumber
 set linebreak
@@ -41,5 +43,6 @@ source $HOME/.config/nvim/plugin.vim
 " plugin has not been installed yet.
 if $PLUGINSTALL != 1
 	source $HOME/.config/nvim/plugin_settings.vim
+	source $HOME/.config/nvim/typings.vim
 	source $HOME/.config/nvim/keybindings.vim
 endif
