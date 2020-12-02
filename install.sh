@@ -57,7 +57,7 @@ ln -sf $HOME/.dotfiles/tmux/tmux.conf $HOME/.tmux.conf
 # install nvim config and plugins
 ln -sf $HOME/.dotfiles/nvim $HOME/.config/nvim
 source $HOME/.zshrc
-PLUGINSTALL=1 nvim -c "PlugInstall" -c "qa"
+PLUGINSTALL=1 /opt/nvim.appimage -c "PlugInstall" -c "qa"
 
 # Python LSP
 sudo apt install -y python3-pip

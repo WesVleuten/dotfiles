@@ -24,10 +24,10 @@ local on_attach = function(client)
 	require'diagnostic'.on_attach(client)
 end
 
-require'nvim_lsp'.pyls.setup({ on_attach=on_attach })
-require'nvim_lsp'.tsserver.setup({ on_attach=on_attach })
-require'nvim_lsp'.clangd.setup({ on_attach=on_attach })
-require'nvim_lsp'.rust_analyzer.setup({ on_attach=on_attach })
+require'lspconfig'.pyls.setup({ on_attach=on_attach })
+require'lspconfig'.tsserver.setup({ on_attach=on_attach })
+require'lspconfig'.clangd.setup({ on_attach=on_attach })
+require'lspconfig'.rust_analyzer.setup({ on_attach=on_attach })
 
 EOF
 
