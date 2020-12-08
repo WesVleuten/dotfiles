@@ -1,27 +1,34 @@
+#!/bin/bash
 echo "Eyo wassup, itsjaboi"
-echo "Please enter your GIT name:"
-read gitname
-echo "Please enter your GIT email:"
-read gitemail
+
+OLDGITNAME=`git config --global user.name`
+OLDGITEMAIL=`git config --global user.email`
+
+while true; do
+    echo "Current gitconfig: $OLDGITNAME <$OLDGITEMAIL>"
+	read -p "Want to update your gitconfig? " yn
+    case $yn in
+        [Yy]* ) bash ~/.dotfiles/gitconfig.sh; break;;
+        [Nn]* ) break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
+if [ ! -f /etc/apt/sources.list.d/yubico-ubuntu-stable-focal.list ]; then
+	sudo apt-add-repository ppa:yubico/stable
+fi
+
+if [ ! -f /etc/apt/sources.list.d/brave-browser-release.list ]; then
+	echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+	curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
+fi
 
 sudo apt update
-sudo apt install -y zsh
-chsh -s /usr/bin/zsh
-
-echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
-sudo apt-add-repository ppa:yubico/stable
-
-sudo apt update
-
-sudo apt install -y apt-transport-https curl neofetch git wget build-essential yubikey-manager-qt brave-browser fd-find
+sudo apt install -y zsh apt-transport-https curl neofetch git wget build-essential yubikey-manager-qt brave-browser fd-find
 
 sudo chown westar:westar /opt
 wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -O /opt/nvim.appimage
 chmod +x /opt/nvim.appimage
-
-git config --global user.email "$gitemail"
-git config --global user.name "$gitname"
 
 # install zshrc
 if [ -f $HOME/.zshrc ] && [ ! -L $HOME/.zshrc ]; then
@@ -72,9 +79,13 @@ sudo npm install -g typescript-language-server
 sudo apt install -y clangd-9
 
 # Rust LSP
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-rustup component add rust-src
-curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-linux -o ~/.local/bin/rust-analyzer
-chmod +x ~/.local/bin/rust-analyzer
-echo "source $HOME/.cargo/env" >> ~/.zshrc.ext
+if ! command -v rustc &> /dev/null
+then
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+	rustup component add rust-src
+	curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-linux -o ~/.local/bin/rust-analyzer
+	chmod +x ~/.local/bin/rust-analyzer
+	echo "source $HOME/.cargo/env" >> ~/.zshrc.ext
+fi
+
 
