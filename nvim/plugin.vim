@@ -3,6 +3,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 Plug 'neovim/nvim-lspconfig'
 Plug 'tjdevries/lsp_extensions.nvim'
 Plug 'nvim-lua/completion-nvim'
+Plug 'kosayoda/nvim-lightbulb'
 
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -16,6 +17,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
+Plug 'kosayoda/nvim-lightbulb'
 
 call plug#end()
 

@@ -3,13 +3,6 @@ let ayucolor="dark"
 colorscheme ayu
 set background=dark
 
-" IndentLine {{
-let g:indentLine_char = '▏'
-let g:indentLine_first_char = '▏'
-let g:indentLine_showFirstIndentLevel = 1
-let g:indentLine_setColors = 0
-" }}
-
 " Airline settings
 let g:airline#extensions#tabline#enabled = 1
 
@@ -21,14 +14,20 @@ lua <<EOF
 
 local on_attach = function(client)
 	require'completion'.on_attach(client)
-	require'diagnostic'.on_attach(client)
 end
 
-require'lspconfig'.pyls.setup({ on_attach=on_attach })
+require'lspconfig'.jedi_language_server.setup({ on_attach=on_attach })
 require'lspconfig'.tsserver.setup({ on_attach=on_attach })
 require'lspconfig'.clangd.setup({ on_attach=on_attach })
 require'lspconfig'.rust_analyzer.setup({ on_attach=on_attach })
 
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+        virtual_text = false,
+        signs = true,
+        update_in_insert = false,
+    }
+)
 EOF
 
 " Enable type inlay hints
@@ -57,6 +56,7 @@ let g:diagnostic_insert_delay = 1
 set updatetime=300
 " Show diagnostic popup on cursor hold
 autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
 
 lua <<EOF
 require('telescope').setup{

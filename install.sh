@@ -1,18 +1,9 @@
 #!/bin/bash
 echo "Eyo wassup, itsjaboi"
 
-OLDGITNAME=`git config --global user.name`
-OLDGITEMAIL=`git config --global user.email`
-
-while true; do
-    echo "Current gitconfig: $OLDGITNAME <$OLDGITEMAIL>"
-	read -p "Want to update your gitconfig? " yn
-    case $yn in
-        [Yy]* ) bash ~/.dotfiles/gitconfig.sh; break;;
-        [Nn]* ) break;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
+echo "Updating git"
+git config --global user.email "16665772+WesVleuten@users.noreply.github.com";
+git config --global user.name "Wes van der Vleuten";
 
 if [ ! -f /etc/apt/sources.list.d/yubico-ubuntu-stable-focal.list ]; then
 	sudo apt-add-repository ppa:yubico/stable
@@ -68,7 +59,7 @@ PLUGINSTALL=1 /opt/nvim.appimage -c "PlugInstall" -c "qa"
 
 # Python LSP
 sudo apt install -y python3-pip
-pip3 install 'python-language-server[all]'
+pip install -U jedi-language-server
 
 # Typescript LSP
 curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -

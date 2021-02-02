@@ -3,23 +3,29 @@ filetype plugin indent on
 set filetype=on
 
 set number relativenumber
-set linebreak
-set showbreak=$+
-set textwidth=80
+set nowrap
 set showmatch
 set visualbell
-set noswapfile
 set termguicolors
 set noshowmode
 set scrolloff=8
-set hlsearch
-set smartcase
-set ignorecase
+set nohlsearch
+set hidden
+set noerrorbells
+
 set incsearch
+set ignorecase
+set smartcase
+
+set noswapfile
+set nobackup
+set undodir=~/.config/nvim/undodir
+set undofile
 
 set autoindent
 set shiftwidth=4
 set smartindent
+set expandtab
 set smarttab
 set softtabstop=4
 set tabstop=4
@@ -33,6 +39,8 @@ set backspace=indent,eol,start
 set updatetime=50
 
 set colorcolumn=80
+
+set signcolumn=yes
 
 let mapleader = " "
 

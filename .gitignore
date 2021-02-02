@@ -2,3 +2,7 @@ zsh/ohmyzsh
 zsh/powerlevel10k
 
 nvim/autoload/plugged
+nvim/nvim
+nvim/.netrwhist
+nvim/undodir
+
