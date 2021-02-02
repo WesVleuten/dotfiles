@@ -18,6 +18,7 @@ Plug 'tpope/vim-commentary'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
 Plug 'kosayoda/nvim-lightbulb'
+Plug 'elzr/vim-json'
 
 call plug#end()
 

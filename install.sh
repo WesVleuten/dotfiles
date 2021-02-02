@@ -55,7 +55,7 @@ ln -sf $HOME/.dotfiles/tmux/tmux.conf $HOME/.tmux.conf
 # install nvim config and plugins
 ln -sf $HOME/.dotfiles/nvim $HOME/.config/nvim
 source $HOME/.zshrc
-PLUGINSTALL=1 /opt/nvim.appimage -c "PlugInstall" -c "qa"
+PLUGINSTALL=1 nvim -c "PlugUpgrade" -c "PlugUpdate" -c "qa"
 
 # Python LSP
 sudo apt install -y python3-pip
@@ -76,7 +76,7 @@ then
 	rustup component add rust-src
 	curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-linux -o ~/.local/bin/rust-analyzer
 	chmod +x ~/.local/bin/rust-analyzer
-	echo "source $HOME/.cargo/env" >> ~/.zshrc.ext
+	grep "source $HOME/.cargo/asdfenv" ~/.zshrc.ext || echo "source $HOME/.cargo/env" >> ~/.zshrc.ext
 fi
 
 

@@ -5,4 +5,5 @@ nvim/autoload/plugged
 nvim/nvim
 nvim/.netrwhist
 nvim/undodir
+nvim/autoload/plug.vim.old
 
