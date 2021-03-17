@@ -15,7 +15,7 @@ if [ ! -f /etc/apt/sources.list.d/brave-browser-release.list ]; then
 fi
 
 sudo apt update
-sudo apt install -y zsh apt-transport-https curl neofetch git wget build-essential yubikey-manager-qt brave-browser fd-find
+sudo apt install -y zsh apt-transport-https curl neofetch git wget build-essential yubikey-manager-qt brave-browser fd-find ripgrep
 
 sudo chown westar:westar /opt
 wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -O /opt/nvim.appimage
