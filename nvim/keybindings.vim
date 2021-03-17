@@ -29,4 +29,14 @@ nnoremap <leader>ga :Git fetch --all<CR>
 nnoremap <silent> g[ <cmd>vim.lsp.diagnostic.goto_prev()<cr>
 nnoremap <silent> g] <cmd>vim.lsp.diagnostic.goto_next()<cr>
 
+nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
+nnoremap <leader>pw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
+
+" git_files can't show untracked files, find_files can, will ignore gitignores
+" with fd (installable with 'apt install fd-find')
 nnoremap <leader>p <cmd>lua require'telescope.builtin'.find_files{}<CR>
+
+" Move block up or down
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
