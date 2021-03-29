@@ -3,8 +3,39 @@ let ayucolor="dark"
 colorscheme ayu
 set background=dark
 
-" Airline settings
-let g:airline#extensions#tabline#enabled = 1
+" Startup harpoon
+lua require('harpoon').setup()
+
+" Allow tmux navigator remappings
+let g:tmux_navigator_no_mappings = 1
+
+" Lualine
+let g:lualine = {
+    \'options' : {
+    \  'theme' : 'ayu_dark',
+    \  'section_separators' : ['', ''],
+    \  'component_separators' : ['|', '|'],
+    \  'icons_enabled' : v:true,
+    \},
+    \'sections' : {
+    \  'lualine_a' : [ ['mode', {'lower': v:true,},], ],
+    \  'lualine_b' : [ ['branch', {'icon': '',}, ], ],
+    \  'lualine_c' : [ ['filename', {'file_status': v:true,},], ],
+    \  'lualine_x' : [ 'encoding', 'fileformat', 'filetype' ],
+    \  'lualine_y' : [ 'progress' ],
+    \  'lualine_z' : [ 'location'  ],
+    \},
+    \'inactive_sections' : {
+    \  'lualine_a' : [  ],
+    \  'lualine_b' : [  ],
+    \  'lualine_c' : [ 'filename' ],
+    \  'lualine_x' : [ 'location' ],
+    \  'lualine_y' : [  ],
+    \  'lualine_z' : [  ],
+    \},
+    \'extensions' : [ ],
+    \}
+lua require('lualine').setup()
 
 " LSP SETUP
 set completeopt=menuone,noinsert,noselect
@@ -73,6 +104,7 @@ require('telescope').setup{
 }
 EOF
 
+" Disable ugly vim's ugly json formatting
 autocmd Filetype json
             \ let g:indentLine_setConceal = 0 |
             \ let g:vim_json_syntax_conceal = 0
