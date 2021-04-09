@@ -32,6 +32,9 @@ Plug 'Yggdroot/indentLine'
 " Awesome git wrapper
 Plug 'tpope/vim-fugitive'
 
+" Better syntax highlighting
+Plug 'sheerun/vim-polyglot'
+
 " Better JSON highlighting and visualizing
 Plug 'elzr/vim-json'
 
