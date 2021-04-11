@@ -1,6 +1,7 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git docker docker-compose)
@@ -11,6 +12,10 @@ export TERM=xterm-256color
 export PATH="$HOME/.local/bin:$PATH"
 export EDITOR=nvim
 export LHOST=$(ip a s tun0 | grep -Po 'inet \K[\d.]+') 2>/dev/null
+
+export DOTFILES="$HOME/.dotfiles"
+export WORKSPACE="$HOME/workspace"
+export NOTESDIR="$HOME/Notes"
 
 catr() {
 	if [ -z "$1" ] || [ -z "$2" ] || [-z "$3" ]; then
@@ -28,5 +33,10 @@ alias gs="git status"
 alias reload="source ~/.zshrc"
 alias utc="date -u +'%F %R %Z'"
 alias quit="exit"
+alias tt="$HOME/.dotfiles/scripts/tt.sh"
+alias svpn="$HOME/.dotfiles/scripts/vpnselect.sh"
+
+alias n='vim "$NOTESDIR/Daily/`date +"%F"`.md"'
+alias ngit='git -C "$NOTESDIR"'
  
 [[ ! -f ~/.zshrc.ext ]] || source ~/.zshrc.ext

@@ -5,9 +5,7 @@ set filetype=on
 set number relativenumber
 set nowrap
 set showmatch
-set visualbell
 set termguicolors
-set noshowmode
 set scrolloff=8
 set nohlsearch
 set hidden
@@ -32,6 +30,9 @@ set tabstop=4
 set termguicolors
 
 set ruler
+
+" showmode is handled by lualine
+set noshowmode
 
 set undolevels=1000
 set backspace=indent,eol,start
