@@ -2,9 +2,6 @@
 
 # Big credit to ThePrimeagen, this script is based HEAVILY on his
 
-DOTFILES="$HOME/.dotfiles"
-NOTESDIR="$HOME/Notes"
-
 createWindow() {
     session=$1
     window=$2
@@ -63,6 +60,16 @@ while [ "$#" -gt 0 ]; do
     "notes")
         createSession notes -c $NOTESDIR
         attachSession notes
+        ;;
+    "htb")
+        createSession htb -c "$WORKSPACE/htb"
+        runInWindow htb 0 "$DOTFILES/scripts/vpnselect.sh"
+        attachSession htb
+        ;;
+    "thm")
+        createSession thm -c "$WORKSPACE/thm"
+        runInWindow thm 0 "$DOTFILES/scripts/vpnselect.sh"
+        attachSession thm
         ;;
     *) echo "Unkown command.. $curr"
     esac
