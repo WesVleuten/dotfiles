@@ -8,7 +8,6 @@ plugins=(git docker docker-compose)
 source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export TERM=xterm-256color
 export PATH="$HOME/.local/bin:$PATH"
 export EDITOR=nvim
 export LHOST=$(ip a s tun0 | grep -Po 'inet \K[\d.]+') 2>/dev/null

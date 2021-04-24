@@ -95,11 +95,7 @@ require('telescope').setup{
     defaults = {
         sorting_strategy = "ascending",
         prompt_position = "top",
-        show_pluto = true,
-        shorten_path = true,
         layout_strategy = 'horizontal',
-        preview_cutoff = 79,
-        winblend = 0,
         borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰'},
         mappings = {
             n = {

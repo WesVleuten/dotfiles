@@ -33,7 +33,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
 
 " Better syntax highlighting
-Plug 'sheerun/vim-polyglot'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Better JSON highlighting and visualizing
 Plug 'elzr/vim-json'
