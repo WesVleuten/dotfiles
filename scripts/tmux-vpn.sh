@@ -5,7 +5,6 @@ TUN2=`ip a s tun2 | grep -Po 'inet \K[\d.]+'`;
 
 if [ -z "$TUN0" ] && [ -z "$TUN1" ] && [ -z "$TUN2" ]
 then
-	echo '!vpn';
 	exit;
 fi
 
@@ -24,4 +23,4 @@ then
 	OUTPUT="$OUTPUT t2:$TUN2";
 fi
 
-echo $OUTPUT;
+echo "$OUTPUT ";
