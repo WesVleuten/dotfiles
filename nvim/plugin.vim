@@ -3,6 +3,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 " Trying out zone
 Plug 'kosayoda/nvim-lightbulb'
 Plug 'ThePrimeagen/harpoon'
+Plug 'f-person/git-blame.nvim'
 
 " Airline replacement
 Plug 'hoob3rt/lualine.nvim'

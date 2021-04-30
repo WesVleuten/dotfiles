@@ -45,13 +45,15 @@ set signcolumn=yes
 
 let mapleader = " "
 
-source $HOME/.config/nvim/plugin.vim
+let $VIMDIR = "$HOME/.config/nvim"
+source $VIMDIR/plugin.vim
 
 " This allows for automatic plugin install
 " It will prevent from loading plugin specific settings causing errors if the
 " plugin has not been installed yet.
 if $PLUGINSTALL != 1
-	source $HOME/.config/nvim/plugin_settings.vim
-	source $HOME/.config/nvim/typings.vim
-	source $HOME/.config/nvim/keybindings.vim
+	source $VIMDIR/plugin_settings.vim
+	source $VIMDIR/typings.vim
+	source $VIMDIR/keybindings.vim
 endif
+

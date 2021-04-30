@@ -1,12 +1,7 @@
-" colorscheme ayu
-let ayucolor="dark"
-colorscheme ayu
-set background=dark
-
-" Remove blue background from ayu
-hi Normal guibg=none
-hi SignColumn guibg=none
-hi CursorLineNR guibg=none
+source $VIMDIR/plugins/theme.vim
+source $VIMDIR/plugins/lsp.vim
+source $VIMDIR/plugins/lualine.vim
+source $VIMDIR/plugins/telescope.vim
 
 " Startup harpoon
 lua require('harpoon').setup()
@@ -14,61 +9,8 @@ lua require('harpoon').setup()
 " Allow tmux navigator remappings
 let g:tmux_navigator_no_mappings = 1
 
-" Lualine
-lua <<EOF
-local custom_ayu = require'lualine.themes.ayu_dark'
-custom_ayu.normal.c.bg = 'none'
-
-require('lualine').setup{
-    options = {
-        theme = custom_ayu,
-        section_separators = {'', ''},
-        component_separators = {'|', '|'},
-        icons_enabled = true,
-    },
-    sections = {
-      lualine_a = { {'mode', {lower = true} } },
-      lualine_b = { {'branch', {icon = '' } }  },
-      lualine_c = { {'filename', {file_status = true } }  },
-      lualine_x = { 'encoding', 'fileformat', 'filetype' },
-      lualine_y = { 'progress' },
-      lualine_z = { 'location'  },
-    },
-    inactive_sections = {
-      lualine_a = {  },
-      lualine_b = {  },
-      lualine_c = { 'filename' },
-      lualine_x = { 'location' },
-      lualine_y = {  },
-      lualine_z = {  },
-    },
-    extensions = { },
-}
-EOF
-
-" LSP SETUP
-set completeopt=menuone,noinsert,noselect
-let g:completion_matching_strategy_list = [ 'exact', 'substring', 'fuzzy' ]
-
-lua <<EOF
-
-local on_attach = function(client)
-	require'completion'.on_attach(client)
-end
-
-require'lspconfig'.jedi_language_server.setup({ on_attach=on_attach })
-require'lspconfig'.tsserver.setup({ on_attach=on_attach })
-require'lspconfig'.clangd.setup({ on_attach=on_attach })
-require'lspconfig'.rust_analyzer.setup({ on_attach=on_attach })
-
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = false,
-        signs = true,
-        update_in_insert = false,
-    }
-)
-EOF
+" Gitblame
+let g:gitblame_enabled = 0
 
 " Enable type inlay hints
 autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
@@ -98,24 +40,3 @@ set updatetime=300
 autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
 
-lua <<EOF
-local actions = require('telescope.actions')
-require('telescope').setup{
-    defaults = {
-        sorting_strategy = "ascending",
-        prompt_position = "top",
-        layout_strategy = 'horizontal',
-        borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰'},
-        mappings = {
-            n = {
-                ["<esc>"] = actions.close
-            }
-        }
-    }
-}
-EOF
-
-" Disable ugly vim's ugly json formatting
-autocmd Filetype json
-            \ let g:indentLine_setConceal = 0 |
-            \ let g:vim_json_syntax_conceal = 0

@@ -6,6 +6,16 @@ nnoremap <leader>gd <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <leader>gtd <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <leader>gi <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <leader>gr <cmd>lua require'telescope.builtin'.lsp_references{}<CR>
+" Goto previous/next diagnostic warning/error
+nnoremap <leader>gp <cmd>vim.lsp.diagnostic.goto_prev()<cr>
+nnoremap <leader>gn <cmd>vim.lsp.diagnostic.goto_next()<cr>
+
+" Go string
+nnoremap <leader>gs :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
+" Go word
+nnoremap <leader>gw :lua require('telescope.builtin').grep_string({ search = vim.fn.expand("<cword>")})<CR>
+
+" Hover and Help
 nnoremap <leader>K <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <leader>k <cmd>lua vim.lsp.buf.signature_help()<CR>
 
@@ -15,15 +25,7 @@ nnoremap <leader>vc :Git commit<CR>
 nnoremap <leader>vf :Git fetch --all<CR>
 nnoremap <leader>vp :Git push<CR>
 nnoremap <leader>vP :Git pull<CR>
-
-" Goto previous/next diagnostic warning/error
-nnoremap <leader>gp <cmd>vim.lsp.diagnostic.goto_prev()<cr>
-nnoremap <leader>gn <cmd>vim.lsp.diagnostic.goto_next()<cr>
-
-" Go string
-nnoremap <leader>gs :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
-" Go word
-nnoremap <leader>gw :lua require('telescope.builtin').grep_string({ search = vim.fn.expand("<cword>")})<CR>
+nnoremap <leader>vb :GitBlameToggle<CR>
 
 " git_files can't show untracked files, find_files can, will ignore gitignores
 " with fd (installable with 'apt install fd-find')
