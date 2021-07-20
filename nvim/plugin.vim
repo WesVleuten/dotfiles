@@ -4,6 +4,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 Plug 'kosayoda/nvim-lightbulb'
 Plug 'ThePrimeagen/harpoon'
 Plug 'f-person/git-blame.nvim'
+Plug 'tomlion/vim-solidity'
 
 " Airline replacement
 Plug 'hoob3rt/lualine.nvim'

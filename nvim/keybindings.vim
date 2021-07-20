@@ -7,8 +7,8 @@ nnoremap <leader>gtd <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <leader>gi <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <leader>gr <cmd>lua require'telescope.builtin'.lsp_references{}<CR>
 " Goto previous/next diagnostic warning/error
-nnoremap <leader>gp <cmd>vim.lsp.diagnostic.goto_prev()<cr>
-nnoremap <leader>gn <cmd>vim.lsp.diagnostic.goto_next()<cr>
+nnoremap <leader>gp <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
+nnoremap <leader>gn <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
 
 " Go string
 nnoremap <leader>gs :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
@@ -33,6 +33,7 @@ nnoremap <C-p> <cmd>lua require'telescope.builtin'.find_files{}<CR>
 nnoremap <leader>ft <cmd>lua require'telescope.builtin'.find_files{}<CR>
 nnoremap <leader>fg <cmd>lua require'telescope.builtin'.git_files{}<CR>
 nnoremap <leader>fb <cmd>lua require'telescope.builtin'.buffers{}<CR>
+nnoremap <leader>fa <cmd>lua require'telescope.builtin'.lsp_code_actions{}<CR>
 
 " Reload vimrc
 nnoremap <leader>R :source $MYVIMRC<CR>
