@@ -5,12 +5,19 @@ Plug 'kosayoda/nvim-lightbulb'
 Plug 'ThePrimeagen/harpoon'
 Plug 'f-person/git-blame.nvim'
 Plug 'tomlion/vim-solidity'
+Plug 'rust-lang/rust.vim'
 
 " Airline replacement
 Plug 'hoob3rt/lualine.nvim'
 
 " Easy navigation across splits and tmux panes
 Plug 'christoomey/vim-tmux-navigator'
+
+" Debugging
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+
+Plug 'leoluz/nvim-dap-go'
 
 " LSP setup
 Plug 'neovim/nvim-lspconfig'
