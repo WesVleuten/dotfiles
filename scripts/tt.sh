@@ -53,11 +53,11 @@ while [ "$#" -gt 0 ]; do
     shift
 
     case "$curr" in
-    "dotfiles")
+    "dotfiles" | "dot")
         createSession dotfiles -c $DOTFILES
         attachSession dotfiles
         ;;
-    "notes")
+    "notes" | "note")
         createSession notes -c $NOTESDIR
         attachSession notes
         ;;
@@ -71,7 +71,12 @@ while [ "$#" -gt 0 ]; do
         runInWindow thm 0 "$DOTFILES/scripts/vpnselect.sh"
         attachSession thm
         ;;
-    *) echo "Unkown command.. $curr"
+    "miner" | "anaxes" | "hash")
+        createSession anaxes -c "$HOME"
+        runInWindow anaxes 0 "ssh anaxes"
+        attachSession anaxes
+        ;;
+    *) echo "Unknown command.. $curr"
     esac
 done
 
