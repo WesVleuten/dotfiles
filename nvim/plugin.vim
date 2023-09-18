@@ -21,8 +21,16 @@ Plug 'leoluz/nvim-dap-go'
 
 " LSP setup
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'ray-x/lsp_signature.nvim'
 Plug 'tjdevries/lsp_extensions.nvim'
+
+" Snippet engine
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
 
 " Telescope and it's requirements
 Plug 'nvim-lua/popup.nvim'
@@ -42,10 +50,13 @@ Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
 
 " Better syntax highlighting
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter'
 
 " Better JSON highlighting and visualizing
 Plug 'elzr/vim-json'
+
+" Tree
+Plug 'preservim/nerdtree'
 
 call plug#end()
 

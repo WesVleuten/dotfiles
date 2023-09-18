@@ -55,5 +55,7 @@ if $PLUGINSTALL != 1
 	source $VIMDIR/plugin_settings.vim
 	source $VIMDIR/typings.vim
 	source $VIMDIR/keybindings.vim
+	source $VIMDIR/mouse.vim
+	source $VIMDIR/clipboard.vim
 endif
 

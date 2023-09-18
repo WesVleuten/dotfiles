@@ -24,6 +24,13 @@ catr() {
 	fi
 }
 
+re='^[0-9]+$'
+tmuxname=`tmux display-message -p '#S'`
+if [[ $tmuxname =~ $re ]] ; then
+    folder=`basename $(pwd)`
+    tmux rename-session "${folder//./}" 2>/dev/null
+fi
+
 alias vim="nvim"
 alias vimdiff="nvim -d"
 alias l="ls -lash"
@@ -39,3 +46,5 @@ alias n='vim "$NOTESDIR/Daily/`date +"%F"`.md"'
 alias ngit='git -C "$NOTESDIR"'
  
 [[ ! -f ~/.zshrc.ext ]] || source ~/.zshrc.ext
+
+export PATH="$HOME/.poetry/bin:$PATH"
