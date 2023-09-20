@@ -25,10 +25,16 @@ catr() {
 }
 
 re='^[0-9]+$'
-tmuxname=`tmux display-message -p '#S'`
+tmuxname=`tmux display-message -p '#S' 2>/dev/null`
 if [[ $tmuxname =~ $re ]] ; then
-    folder=`basename $(pwd)`
-    tmux rename-session "${folder//./}" 2>/dev/null
+    session_name=""
+    if [[ `pwd` = $HOME ]] ; then
+        session_name="HOME"
+    else
+        folder=`basename $(pwd)`
+        session_name="${folder//./}"
+    fi
+    tmux rename-session "$session_name" 2>/dev/null
 fi
 
 alias vim="nvim"

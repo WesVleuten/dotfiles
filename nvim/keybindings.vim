@@ -64,3 +64,5 @@ nnoremap <leader>ha :lua require("harpoon.mark").toggle_file()<CR>
 nnoremap <leader>hl :lua require("harpoon.ui").toggle_quick_menu()<CR>
 nnoremap <leader>hc :lua require("harpoon.mark").clear_all()<CR>
 
+" Tree
+nnoremap <leader>tt :NERDTreeToggle<CR>

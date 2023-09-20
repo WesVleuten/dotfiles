@@ -9,6 +9,8 @@ Plug 'rust-lang/rust.vim'
 
 " Airline replacement
 Plug 'hoob3rt/lualine.nvim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
 
 " Easy navigation across splits and tmux panes
 Plug 'christoomey/vim-tmux-navigator'
