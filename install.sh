@@ -18,8 +18,8 @@ sudo apt update
 sudo apt install -y zsh apt-transport-https curl neofetch git wget build-essential yubikey-manager-qt brave-browser fd-find ripgrep
 
 sudo chown westar:westar /opt
-wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -O /opt/nvim.appimage
-chmod +x /opt/nvim.appimage
+wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -O /opt/nvim
+chmod +x /opt/nvim
 
 # install zshrc
 if [ -f $HOME/.zshrc ] && [ ! -L $HOME/.zshrc ]; then

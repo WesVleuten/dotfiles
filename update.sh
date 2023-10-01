@@ -1,7 +1,8 @@
 #!/bin/bash
 
-wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -O /opt/nvim.appimage
-chmod +x /opt/nvim.appimage
+wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -O /opt/nvim
+chmod +x /opt/nvim
 
-PLUGINSTALL=1 /opt/nvim.appimage -c "PlugUpgrade" -c "PlugUpdate" -c "qa"
+
+PLUGINSTALL=1 /opt/nvim -c "PlugUpgrade" -c "PlugUpdate" -c "qa"
 
